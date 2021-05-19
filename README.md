@@ -35,7 +35,6 @@ The project included 2 main codes in VHDL:
 
 Testbenches are also included to verify that the codes are working properly. 
 
-### Transferring the light.vhd file to the DE0-Nano-SoC board
 
 
 
