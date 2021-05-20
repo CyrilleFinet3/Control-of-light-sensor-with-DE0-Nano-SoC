@@ -40,6 +40,6 @@ Testbenches are also included to verify that the codes are working properly.
 
 
 
-The DE0-Nano-SoC-Light zip files contain all the files of the project. 
+
 
 
