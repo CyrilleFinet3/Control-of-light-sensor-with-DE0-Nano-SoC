@@ -1,6 +1,6 @@
 # Control of light sensor with DE0-Nano-SoC
 
-This project is part of the Hardware/Software Platforms MA1 course at the Polytechnic Faculty of Mons. The goal of this project is to drive the BH1710FVI light sensor with the DE0-Nano-SoC board. 
+This project is part of the Hardware/Software Platforms MA1 course at the Polytechnic Faculty of Mons(https://web.umons.ac.be/fpms/fr/). The goal of this project is to drive the BH1710FVI light sensor with the DE0-Nano-SoC board. 
 
 * Group members: Deffrennes Théo (Theo.deffrennes@student.umons.ac.be) and Finet Cyrille (Cyrille.finet@student.umons.ac.be) 
 * Project title: Control of a light sensor with the DE0-Nano-SoC board
@@ -30,7 +30,7 @@ The opecode is explained in the instruction set architecture of the device and d
 
 The project included 2 main codes in VHDL:
 
-* The I2C master driver (I2C_M.vhd) which defines the state machine of the I2C protocol
+* The I2C master driver (I2C_M.vhd) which defines the state machine of the I2C protocol. The visualization of the state machine can be found with the following link: https://forum.digikey.com/t/i2c-master-vhdl/12797
 * The Light bloc (light.vhd) that uses the I2C driver and transfers the data to two output registers of 8 bits for the software
 
 Testbenches are also included to verify that the codes are working properly. 
