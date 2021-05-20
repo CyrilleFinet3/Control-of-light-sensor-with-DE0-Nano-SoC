@@ -138,6 +138,7 @@ architecture RTL of light is
 				when s1 =>   
 					enable <= '1';   
 					if i2c_m_reg_rdy = '1' then  --mettre 0 au lieu de 1
+						i2c_m_addr_wr <= DEVICE & '1';
 						state <= s2; 
 						read_or_write <= '1';
 						
@@ -147,7 +148,7 @@ architecture RTL of light is
 					if i2c_m_val_rdy = '1' then    
 					   enable <= '0';   
 						state <= s3;
-						i2c_m_addr_wr <= DEVICE & '1'; --passe en mode lecture
+						--i2c_m_addr_wr <= DEVICE & '1'; --passe en mode lecture
 						--read_or_write <= '1';
 					end if;
 				
