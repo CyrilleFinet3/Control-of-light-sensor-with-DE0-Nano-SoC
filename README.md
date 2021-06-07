@@ -31,7 +31,7 @@ The opecode is explained in the instruction set architecture of the device and d
 The Altera Quartus EDA tool and the DE0 development kits will be used to interact with the periphery through a hardware driver. 
 - The first thing to do is to download the DE0 nano SoC golden and open the file soc_system.qpf as project in Quartus.  In the downloaded golden file there is also the ghrd.v file which will be the main file of the project. It is a Verilog file corresponding to the golden hardware. 
 - Secondly, the routing (clock, reset, registers) configuration in the FPGA must be done with Platform Designer application on Quartus.  As the light captor uses 16 bits to read the data, two output registers of 8 bits will be used and thus be added in Platform Designer. 
-- Then, still on Quartus, the application Pin Planner has to be used to allocate the pin that will be used on the FPGA. One for the scl (GPIO_0[0]) and another one for the sda (GPIO_0[1]). 
+- Then, still on Quartus, the application Pin Planner has to be used to allocate the pin that will be used on the FPGA. One for the scl (GPIO_0[0]) and another one for the sda (GPIO_0[1]). Both are specified as being bidirectionnal. 
 - After these manipulation the ghrd.v file need to be updated with the modifications realised in Platform Designer.
 
 When these steps are achieved it is possible to create the vhdl code (light.vhd) corresponding to the sensor's operation. 
