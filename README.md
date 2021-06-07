@@ -72,13 +72,15 @@ In the different files attached to the Github there is a test bench for the I2C 
 The light block (light.vhd) is the main code of the project and it uses the I2C driver previously explained. The desired behaviour is shown in the following figure. 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/79786800/121068847-09b4d080-c7cd-11eb-894d-5936076888d2.png" />
+  <img src="https://user-images.githubusercontent.com/79786800/121068847-09b4d080-c7cd-11eb-894d-5936076888d2.png" = 100x100/>
 </p>
+
+As said previously, the light block is based on the I2C master driver 
 
 ### 4) Software part
 #### 4.a) Connection between the FPGA and the user laptop
 #### 4.b) Code C
-For the software aspect of the sensor reading, a code has been implemented in C (main.c). It takes the values included in the two registers, the first one beeing the most significant byte (LSB) and the second onebeing the less significant byte (LSB), and concatenates them. Once the code is run, the brightness is displayed on the user's screen using a printf().
+
 
 
 
