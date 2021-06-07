@@ -7,6 +7,13 @@ USE ieee.math_real.ALL;
  
 entity light is
   port(
+  
+	generic
+	(
+		min_count : natural := 0;
+		max_count : natural := 6000000;
+	);
+	 
 
     --System 
     FPGA_CLK1_50   : in std_logic;
@@ -26,7 +33,10 @@ architecture RTL of light is
 	
   constant clk_frequency : integer := 50_000_000;   --The clock frequency of the board used
   constant i2c_frequency : integer := 400_000;       --The I2C clock frequency.
-
+  
+  variable cnt : integer := 0;
+  
+  --constant  sleep	: time := 120 ms;
   --constant DATA_WITH	: integer := 8;
 	
 									
@@ -125,7 +135,7 @@ architecture RTL of light is
 			
 		elsif rising_edge(FPGA_CLK1_50)then
 			case state is
-				
+				--enable <= '1';
 				when s0 => 
 					if busy = '0' then  
 						state <= s1;           			
@@ -133,16 +143,31 @@ architecture RTL of light is
 						read_or_write <= '0';  
 						--data to be written
 						data_to_write <= opecode; --resolution
+						
+						
 					end if;
 				
 				when s1 =>   
-					enable <= '1';   
+					enable <= '1';
 					if i2c_m_reg_rdy = '1' then  --mettre 0 au lieu de 1
-						i2c_m_addr_wr <= DEVICE & '1';
-						state <= s2; 
+						i2c_m_addr_wr <= DEVICE & '1'; --passe en mode lecture
+  
+						state <= scompteur; 
 						read_or_write <= '1';
 						
 					end if;
+					
+				--ajouter un étét compteur
+				
+				when scompteur =>
+					if cnt >= max_count then 
+						cnt := 0;
+						state <= s2;
+					else 
+						cnt := cnt + 1;
+					
+					end if;
+				
 				
 				when s2 => 
 					if i2c_m_val_rdy = '1' then    
@@ -155,11 +180,16 @@ architecture RTL of light is
 				when s3 =>   
 					enable <= '1';   
 					if i2c_m_val_rdy = '1' then 
-						state <= s4; 
+						state <= s4a; 
 						reg1 <= data_rd;
 					end if;
 				
-				when s4 => 
+				when s4a =>    
+					if i2c_m_val_rdy = '0' then 
+						state <= s5; 
+					end if;
+				
+				when s5 => 
 					if i2c_m_val_rdy = '1' then    
 						enable <= '0';  
 						reg2 <=data_rd;						
