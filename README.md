@@ -41,7 +41,7 @@ When these steps are achieved it is possible to create the vhdl code (light.vhd)
 The project included 2 main codes in VHDL:
 
 * The I2C master driver (I2C_M.vhd) which defines the state machine of the I2C protocol.
-* The Light bloc (light.vhd) that uses the I2C driver and transfers the data to two output registers of 8 bits for the software.
+* The Light block (light.vhd) that uses the I2C driver and transfers the data to two output registers of 8 bits for the software.
 
 Testbenches are also included to verify that the codes are working properly.
 
@@ -67,7 +67,13 @@ The I2C master state machine is illustrated below. The code that has been implem
 </p>
 
 In the different files attached to the Github there is a test bench for the I2C driver (I2C_M_S_RX_TB.vhd) to analyze its behaviour. It uses the two vhdl codes I2C_M.vhd and I2C_S_RX.vhd. The latter is used to simulate a response of a slave in the test bench. 
-#### 3.b) Light bloc
+#### 3.b) Light block
+
+The light block (light.vhd) is the main code of the project and it uses the I2C driver previously explained. The desired behaviour is shown in the following figure. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/79786800/121068847-09b4d080-c7cd-11eb-894d-5936076888d2.png" />
+</p>
 
 ### 4) Software part
 #### 4.a) Connection between the FPGA and the user laptop
