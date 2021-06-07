@@ -31,7 +31,7 @@ The opecode is explained in the instruction set architecture of the device and d
 The Altera Quartus EDA tool and the DE0 development kits will be used to interact with the periphery through a hardware driver. 
 - The first thing to do is to download the DE0 nano SoC golden and open the file soc_system.qpf as project in Quartus.  In the downloaded golden file there is also the ghrd.v file which will be the main file of the project. It is a Verilog file corresponding to the golden hardware. 
 - Secondly, the routing (clock, reset, registers) configuration in the FPGA must be done with Platform Designer application on Quartus.  As the light captor uses 16 bits to read the data, two output registers of 8 bits will be used and thus be added in Platform Designer. 
-- Then, still on Quartus, the application Pin Planner has to be used to allocate the pin that will be used on the FPGA. One for the scl (GPIO_0[0]) and another one for the sda (GPIO_0[1]). Both are specified as being bidirectionnal. 
+- Then, still on Quartus, the application Pin Planner has to be used to allocate the pin that will be used on the FPGA. One for the scl (GPIO_0[0]) and another one for the sda (GPIO_0[1]). 
 - After these manipulation the ghrd.v file need to be updated with the modifications realised in Platform Designer.
 
 When these steps are achieved it is possible to create the vhdl code (light.vhd) corresponding to the sensor's operation. 
@@ -49,17 +49,17 @@ Testbenches are also included to verify that the codes are working properly.
 
 The I2C master state machine is illustrated below. The code that has been implemented (I2C_M.vhd) follows the operation of the state machine. The entity of the driver defines multiple ports:
 
-* clk : system clock (50 MHz)
-* reset_n : 
-* ena : 
-* addr : 
-* rw : 
-* data_wr : 
-* data_rd :
-* busy :
-* ack_error : 
-* sda :
-* scl : 
+* clk : system clock (which is 50 MHz in our case)
+* reset_n : asynchronous active low reset
+* ena : "1" for enabling the device
+* addr : address of the slave on 7 bits
+* rw : "0" for a write command and "1" for a read command
+* data_wr : data to write to the sensor (8 bits)
+* data_rd : data read from the sensor (8 bits)
+* busy : "1" for transaction in progress
+* ack_error : "0" if there is no acknowledge error and "1" if there is an error during transaction
+* sda : serial data line between the master and the sensor
+* scl : serial clock line between the master and the sensor
 
 
 <p align="center">
@@ -68,9 +68,6 @@ The I2C master state machine is illustrated below. The code that has been implem
 
 
 #### 3.b) Light bloc
-### 4) Software implemntation
-#### 4.a) Connection between the user laptop and the FPGA
-#### 4.b) Code C
 
 
 
