@@ -37,7 +37,7 @@ Testbenches are also included to verify that the codes are working properly.
 
 #### 2.a) I2C master driver
 
-The I2C master state machine is illustrated below. The code that has been implemented follows the operation of the state machine. 
+The I2C master state machine is illustrated below. The code that has been implemented (I2C_M.vhd) follows the operation of the state machine. 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/79786800/121052583-cd787480-c7ba-11eb-9b0d-97f72eed8fcb.png" />
