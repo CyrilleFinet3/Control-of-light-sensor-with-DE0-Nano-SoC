@@ -81,8 +81,7 @@ As said previously, the light block is based on the I2C master driver. It is the
 For the software development the Embedded Development Suite EDS has to be installed. It has to be the same version as Quartus. 
 PUTTY has also been installed to access the board using the USB port. PUTTY allows to connect to the board and use the terminal to see the execution of the program running on the ARM processors. Any printf on the program will appear on that terminal.
 
-#### 4.a) Connection between the FPGA and the user laptop
-#### 4.b) Code C
+- Code C
 
 For the software aspect of the sensor reading, a code has been implemented in C (main.c). It takes the values included in the two registers, the first one corresponding to the most significant byte (MSB) and the second one to the less significant byte (LSB), and concatenate them. Once the code is run, the brigthness value is displayed on the user's screen using a printf().  
 
