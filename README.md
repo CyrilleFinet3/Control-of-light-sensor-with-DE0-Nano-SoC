@@ -86,6 +86,10 @@ PUTTY has also been installed to access the board using the USB port. PUTTY allo
 For the software aspect of the sensor reading, a code has been implemented in C (main.c). It takes the values included in the two registers, the first one corresponding to the most significant byte (MSB) and the second one to the less significant byte (LSB), and concatenate them. Once the code is run, the brigthness value is displayed on the user's screen using a printf().  
 
 
+### Appendices
+Link of the demonstration video: 
+Datasheet of the light sensor 
+
 
 
 
