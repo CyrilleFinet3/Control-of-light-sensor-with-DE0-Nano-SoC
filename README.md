@@ -69,7 +69,7 @@ The I2C master state machine is illustrated below. The code that has been implem
 
 #### 3.b) Light bloc
 ### 4) Software implemntation
-#### 4.a) Connection betwwen the laptop and the FPGA
+#### 4.a) Connection between the user laptop and the FPGA
 #### 4.b) Code C
 
 
