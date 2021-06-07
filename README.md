@@ -87,8 +87,8 @@ For the software aspect of the sensor reading, a code has been implemented in C 
 
 
 ### Appendices
-Link of the demonstration video: 
-Datasheet of the light sensor 
+- Link of the demonstration video: 
+- For more details the datasheet of the light sensor is included in the github files : 
 
 
 
