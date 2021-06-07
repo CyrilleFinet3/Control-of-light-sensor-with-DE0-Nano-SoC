@@ -75,15 +75,10 @@ The light block (light.vhd) is the main code of the project and it uses the I2C 
   <img src="https://user-images.githubusercontent.com/79786800/121068847-09b4d080-c7cd-11eb-894d-5936076888d2.png" = 10x10/>
 </p>
 
-As said previously, the light block is based on the I2C master driver 
+As said previously, the light block is based on the I2C master driver. It is therefore necessary to make a mapping between the ports of the I2C master and the ports and signals of the light block. Once this is done, there is a state machine that will perform a single reading repeated over time. The process is the same as in the first figure. During the first state (s0), the master will write the address of the sensor ("0100011") and the bit at "0" for writing. Then, the master writes the opecode of a single read (defined in the datasheet as "00100000"). On the second state (s1), the master will rewrite the address of the sensor but set the bit to "1" for reading. The sensor will therefore carry out its measurement during a certain time and there is a counter state that takes this into account. There is a state that will read the first 8 bits (MSB) and another one the last 8 bits (LSB). Finally, the process returns to the initial state and is repaeated continuously. 
 
 ### 4) Software part
-For the software development the Embedded Development Suite EDS has to be installed. It has to be the same version as Quartus. 
-PUTTY has also been installed to access the board using the USB port. PUTTY allows to connect to the board and use the terminal to see the execution of the program running on the ARM processors. Any printf on the program will appear on that terminal.
- 
-#### 4.a) Connection with the FPGA
-First a header file (.h) must be available to access the PIO and IP (the driver) on the application program corresponding to the main.c file. To generate this file, it is necessary to use Altera Soc EDS command shell and execute the shell generate_hps_qsys_header.sh file which can be found into the reference folder of the project. 
-
+#### 4.a) Connection between the FPGA and the user laptop
 #### 4.b) Code C
 
 For the software aspect of the sensor reading, a code has been implemented in C (main.c). It takes the values included in the two registers, the first one corresponding to the most significant byte (MSB) and the second one to the less significant byte (LSB), and concatenate them. Once the code is run, the brigthness value is displayed on the user's screen using a printf().  
