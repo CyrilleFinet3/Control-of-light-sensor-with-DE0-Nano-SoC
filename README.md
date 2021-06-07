@@ -78,7 +78,7 @@ The light block (light.vhd) is the main code of the project and it uses the I2C 
 ### 4) Software part
 #### 4.a) Connection between the FPGA and the user laptop
 #### 4.b) Code C
-For the software aspect of the sensor reading, a code has been implemented in C (main.c). It takes the values included in the two registers, the first one beeing the most significant byte (LSB) and the second onebeing the less significant byte (LSB), and concatenates them.
+For the software aspect of the sensor reading, a code has been implemented in C (main.c). It takes the values included in the two registers, the first one beeing the most significant byte (LSB) and the second onebeing the less significant byte (LSB), and concatenates them. Once the code is run, the brightness is displayed on the user's screen using a printf().
 
 
 
