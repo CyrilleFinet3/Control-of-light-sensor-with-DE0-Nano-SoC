@@ -1,6 +1,6 @@
 # Control of light sensor with DE0-Nano-SoC
 
-This project is part of the Hardware/Software Platforms MA1 course at the Polytechnic Faculty of Mons(https://web.umons.ac.be/fpms/fr/). The goal of this project is to drive the BH1710FVI light sensor with the DE0-Nano-SoC board. 
+This project is part of the Hardware/Software Platforms MA1 course at the Polytechnic Faculty of Mons(https://web.umons.ac.be/fpms/fr/). The goal of this project is to drive the BH1710FVC light sensor with the DE0-Nano-SoC board. 
 
 * Group members: Deffrennes Théo (Theo.deffrennes@student.umons.ac.be) and Finet Cyrille (Cyrille.finet@student.umons.ac.be) 
 * Project title: Control of a light sensor with the DE0-Nano-SoC board
@@ -8,9 +8,9 @@ This project is part of the Hardware/Software Platforms MA1 course at the Polyte
 
 The project is mainly implemented with VHDL with a little bit of Verilog and C. The software used is "Quartus Prime Lite edition". 
 
-### 1) BH1710FVI Light sensor and I2C protocol
+### 1) BH1710FVC Light sensor and I2C protocol
 
-The BH1710FVI is a digital ambient light sensor with an I2C bus interface. The sensor measures the illuminance in lux (1 lux=1 lumen/m^2). The detection range is from 1 to 65535 lux. Therefore, the data sent from the sensor are coded on 16 bits. 
+The BH1710FVC is a digital ambient light sensor with an I2C bus interface. The sensor measures the illuminance in lux (1 lux=1 lumen/m^2). The detection range is from 1 to 65535 lux. Therefore, the data sent from the sensor are coded on 16 bits. 
 
 I2C is a half-duplex bidirectional synchronous serial bus composed of 2 signal lines:
 * SDA (Serial Data Line): bidirectional data line
@@ -88,7 +88,7 @@ For the software aspect of the sensor reading, a code has been implemented in C 
 
 ### Appendices
 - Link of the demonstration video: 
-- For more details the datasheet of the light sensor is included in the github files : BH1710FVC_Light_semi.pdf
+- For more details the datasheet of the light sensor is included in the github files : 
 
 
 
