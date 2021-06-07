@@ -17,7 +17,7 @@ I2C is a half-duplex bidirectional synchronous serial bus composed of 2 signal l
 * SCL (Serial Clock Line): bidirectional clock line
 
 The I2C uses a master-slave(s) communication and in the frame of this tutorial, the master is the DE0-Nano-SoC and the slave is the light sensor. 
-The scheme of the communication is as follows with first the writing operation and the reading information:
+The scheme of the communication is as follows with first the writing operation and the reading operation on 2 bytes:
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/79786800/118889273-2f049c00-b8fd-11eb-8f2f-35ef01ece9cb.png" />
