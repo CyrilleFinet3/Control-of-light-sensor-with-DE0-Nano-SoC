@@ -39,7 +39,7 @@ Testbenches are also included to verify that the codes are working properly.
 
 #### 2.b) Light bloc
 
-Testbenches are also included to verify that the codes are working properly. 
+
 
 
 
