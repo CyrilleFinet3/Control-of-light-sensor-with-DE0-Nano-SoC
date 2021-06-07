@@ -8,7 +8,7 @@ This project is part of the Hardware/Software Platforms MA1 course at the Polyte
 
 The project is mainly implemented with VHDL with a little bit of Verilog and C. The software used is "Quartus Prime Lite edition". 
 
-### BH1710FVI Light sensor and I2C protocol
+### 1) BH1710FVI Light sensor and I2C protocol
 
 The BH1710FVI is a digital ambient light sensor with an I2C bus interface. The sensor measures the illuminance in lux (1 lux=1 lumen/m^2). The detection range is from 1 to 65535 lux. Therefore, the data sent from the sensor are coded on 16 bits. 
 
