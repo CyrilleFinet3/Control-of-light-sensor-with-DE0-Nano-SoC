@@ -26,7 +26,17 @@ The scheme of the communication is as follows with first the writing operation (
 The slave address of the light sensor is coded on 7 bits:"0100011". 
 The opecode is explained in the instruction set architecture of the device and defines the type of resolution (Low, Mid, High) and if the measurement is made once or continuously. 
 
-### 2) VHDL codes
+
+### 2) Implementation of the sensor with Quartus
+The Altera Quartus EDA tool and the DE0 development kits will be used to interact with the periphery through a hardware driver. 
+- The first thing to do is to download the DE0 nano SoC golden and open the file soc_system.qpf as project in Quartus.  In the downloaded golden file there is also the ghrd.v file which will the main file of the project. It is a Verilog file corresponding to the golden hardware. 
+- Secondly, the routing (clock, reset, registers) configuration in the FPGA must be done with Platform Designer application on Quartus.  As the light captor uses 16 bits the read the data, two output register of 8 bits will be used and thus be added in Platform Designer. After this manipulation the ghrd.v file need to be updated with the modifications realised in Platform Designer. 
+- Then, still on Quartus, the application Pin Planner has to be used to allocate the pin that will be used on the FPGA. One for the scl and the other for the sda. 
+- After these manipulation the ghrd.v file need to be updated with the modifications realised in Platform Designer.
+
+When these steps are achieved it is possible to create the vhdl code (light.vhd) corresponding to the sensor's operation. 
+
+### 3) VHDL codes
 
 The project included 2 main codes in VHDL:
 
@@ -35,7 +45,7 @@ The project included 2 main codes in VHDL:
 
 Testbenches are also included to verify that the codes are working properly.
 
-#### 2.a) I2C master driver
+#### 3.a) I2C master driver
 
 The I2C master state machine is illustrated below. The code that has been implemented (I2C_M.vhd) follows the operation of the state machine. The entity of the driver defines multiple ports:
 
@@ -57,7 +67,7 @@ The I2C master state machine is illustrated below. The code that has been implem
 </p>
 
 
-#### 2.b) Light bloc
+#### 3.b) Light bloc
 
 
 
