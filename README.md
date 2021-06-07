@@ -66,7 +66,7 @@ The I2C master state machine is illustrated below. The code that has been implem
   <img src="https://user-images.githubusercontent.com/79786800/121052583-cd787480-c7ba-11eb-9b0d-97f72eed8fcb.png" />
 </p>
 
-
+In the different files attached to the Github there is a test bench for the I2C driver (I2C_M_S_RX_TB.vhd) to analyze its behaviour. It uses the two vhdl codes I2C_M.vhd and I2C_S_RX.vhd. The latter is used to simulate a response of a slave in the test bench. 
 #### 3.b) Light bloc
 
 
