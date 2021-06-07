@@ -38,8 +38,7 @@ Testbenches are also included to verify that the codes are working properly.
 #### 2.a) I2C master driver
 
 <p align="center">
-  <img src="![image](https://user-images.githubusercontent.com/79786800/121052583-cd787480-c7ba-11eb-9b0d-97f72eed8fcb.png)
-" />
+  <img src="https://user-images.githubusercontent.com/79786800/121052583-cd787480-c7ba-11eb-9b0d-97f72eed8fcb.png" />
 </p>
 
 
