@@ -26,12 +26,18 @@ The scheme of the communication is as follows with first the writing operation a
 The slave address of the light sensor is coded on 7 bits:"0100011". 
 The opecode is explained in the instruction set architecture of the device and defines the type of resolution (Low, Mid, High) and if the measurement is made once or continuously. 
 
-### VHDL codes
+### 2) VHDL codes
 
 The project included 2 main codes in VHDL:
 
-* The I2C master driver (I2C_M.vhd) which defines the state machine of the I2C protocol. The visualization of the state machine can be found with the following link: https://forum.digikey.com/t/i2c-master-vhdl/12797
-* The Light bloc (light.vhd) that uses the I2C driver and transfers the data to two output registers of 8 bits for the software
+* The I2C master driver (I2C_M.vhd) which defines the state machine of the I2C protocol.
+* The Light bloc (light.vhd) that uses the I2C driver and transfers the data to two output registers of 8 bits for the software.
+Testbenches are also included to verify that the codes are working properly.
+
+## 2.a) I2C master driver
+
+
+## 2.b) Light bloc
 
 Testbenches are also included to verify that the codes are working properly. 
 
