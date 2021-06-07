@@ -69,7 +69,9 @@ The I2C master state machine is illustrated below. The code that has been implem
 In the different files attached to the Github there is a test bench for the I2C driver (I2C_M_S_RX_TB.vhd) to analyze its behaviour. It uses the two vhdl codes I2C_M.vhd and I2C_S_RX.vhd. The latter is used to simulate a response of a slave in the test bench. 
 #### 3.b) Light bloc
 
-
+### 4) Software part
+#### 4.a) Connection between the FPGA and the user laptop
+#### 4.b) Code C
 
 
 
