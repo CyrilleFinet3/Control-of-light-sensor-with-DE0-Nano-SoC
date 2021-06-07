@@ -39,7 +39,7 @@ Testbenches are also included to verify that the codes are working properly.
 
 The I2C master state machine is illustrated below. The code that has been implemented (I2C_M.vhd) follows the operation of the state machine. The entity of the driver defines multiple ports:
 
-* clk : 
+* clk : system clock (50 MHz)
 * reset_n : 
 * ena : 
 * addr : 
