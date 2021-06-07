@@ -32,6 +32,7 @@ The project included 2 main codes in VHDL:
 
 * The I2C master driver (I2C_M.vhd) which defines the state machine of the I2C protocol.
 * The Light bloc (light.vhd) that uses the I2C driver and transfers the data to two output registers of 8 bits for the software.
+
 Testbenches are also included to verify that the codes are working properly.
 
 #### 2.a) I2C master driver
