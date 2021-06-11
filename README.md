@@ -88,7 +88,7 @@ For the software aspect of the sensor reading, a code has been implemented in C 
 
 ### Appendices
 - Demonstration video: I2C_light_sensor.mkv
-- For more details the datasheet of the light sensor is included in the github files : 
+- For more details the datasheet of the light sensor is included in the github files : BH1710FVC_Light_Semi.pdf
 
 
 
