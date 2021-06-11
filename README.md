@@ -87,7 +87,7 @@ For the software aspect of the sensor reading, a code has been implemented in C 
 
 
 ### Appendices
-- Link of the demonstration video: 
+- Demonstration video: I2C_light_sensor.mkv
 - For more details the datasheet of the light sensor is included in the github files : 
 
 
