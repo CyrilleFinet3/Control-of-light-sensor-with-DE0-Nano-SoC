@@ -11,7 +11,7 @@ end light_TB;
 
 architecture behavior of light_TB is
 
-	constant clk_period	: time := 10 ns;
+	constant clk_period	: time := 20 ns;
 
 	component light is
 	  port(
@@ -34,9 +34,9 @@ architecture behavior of light_TB is
 		generic(
 			WR		: std_logic:= '0';
 					-- device address
-			DADDR	: std_logic_vector(6 downto 0):= "0100011";		   
+			DADDR	: std_logic_vector(6 downto 0):= "0100011"; --device address		   
 					-- sub address
-			ADDR	: std_logic_vector(7 downto 0):= "00100000"		
+			ADDR	: std_logic_vector(7 downto 0):= "00100000" --opecode
 		);
 		port(
 			RST		: in std_logic;
@@ -89,10 +89,11 @@ architecture behavior of light_TB is
 	
 	P_RST_N: process
 	begin	
-		reset <= '0';	
-		wait for clk_period*100;
-		reset <= '1';			
+		reset <= '1';	
 		wait;
+--		wait for clk_period*10000;
+--		reset <= '0';			
+--		wait for clk_period*10;
 	end process;
 
 
