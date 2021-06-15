@@ -8,13 +8,6 @@ USE ieee.math_real.ALL;
 entity light is
   port(
   
-	generic
-	(
-		min_count : natural := 0;
-		max_count : natural := 6000000;
-	);
-	 
-
     --System 
     FPGA_CLK1_50   : in std_logic;
     reset : in std_logic;
@@ -34,7 +27,10 @@ architecture RTL of light is
   constant clk_frequency : integer := 50_000_000;   --The clock frequency of the board used
   constant i2c_frequency : integer := 400_000;       --The I2C clock frequency.
   
-  variable cnt : integer := 0;
+  constant min_count : natural := 0;
+  constant max_count : natural := 6000000;
+  
+  signal cnt : integer := 0;
   
   --constant  sleep	: time := 120 ms;
   --constant DATA_WITH	: integer := 8;
@@ -77,7 +73,7 @@ architecture RTL of light is
 
 
 	-- Build an enumerated type for the state machine
-	type state_type is (s0, s1, s2, s3, s4);
+	type state_type is (s0, s1, s02, scompteur, s2, s3, s4a, s5);
 	signal state : state_type;
 	
 	component I2C_M is
@@ -138,7 +134,7 @@ architecture RTL of light is
 				--enable <= '1';
 				when s0 => 
 					if busy = '0' then  
-						state <= s1;           			
+						state <= s1;  
 						i2c_m_addr_wr <= DEVICE & '0';  --add 0 to write
 						read_or_write <= '0';  
 						--data to be written
@@ -146,14 +142,21 @@ architecture RTL of light is
 						
 						
 					end if;
+					
 				
 				when s1 =>   
 					enable <= '1';
 					if i2c_m_reg_rdy = '1' then  --mettre 0 au lieu de 1
 						i2c_m_addr_wr <= DEVICE & '1'; --passe en mode lecture
   
-						state <= scompteur; 
+						state <= s02; 
 						read_or_write <= '1';
+						enable <= '0';						
+					end if;
+					
+				when s02 => 
+					if busy = '0' then  
+						state <= scompteur;    
 						
 					end if;
 					
@@ -161,10 +164,11 @@ architecture RTL of light is
 				
 				when scompteur =>
 					if cnt >= max_count then 
-						cnt := 0;
+						cnt <= 0; 
+						enable <= '1';
 						state <= s2;
 					else 
-						cnt := cnt + 1;
+						cnt <= cnt + 1;
 					
 					end if;
 				

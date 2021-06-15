@@ -19,16 +19,7 @@ architecture behavior of I2C_M_S_RX_TB is
 	constant INPUT_CLK_MULTIPLIER : integer := 100;
 	constant BUS_CLK_MULTIPLIER 	: integer := 1;
 	
-	component I2C_M is
-		generic (
-										--input clock speed from user logic in KHz
-			 input_clk				: integer := INPUT_CLK_KHZ;		
-										--speed the I2C_M bus (scl) will run at in MHz 
-			 bus_clk					: integer := BUS_CLK_MHZ;		   
-										--input clock speed from user logic in KHz
-			 input_clk_multiplier: integer := INPUT_CLK_MULTIPLIER;			
-			 bus_clk_multiplier	: integer := BUS_CLK_MULTIPLIER
-		);
+	component I2C_M is 
 		 port(
 			 clk       : in     std_logic;                    --system clock
 			 reset_n   : in     std_logic;                    --active low reset
@@ -155,7 +146,7 @@ begin
 	P_RST_N: process
 	begin	
 		rst_n <= '0';	
-		wait for clk_period*50;
+		wait for clk_period*100;
 		rst_n <= '1';			
 		wait;
 	end process;

@@ -146,7 +146,7 @@ end process;
 process (RST, STATE, ACK, SHIFTREG)
 begin
 if RST = '0' then
-	DOUT_S <= "00000000"; 
+	DOUT_S <= "00000011"; 
 	DATA_RDY <= '0';
 elsif STATE="11" and ACK='1' and ACK'event then 
 	DOUT_S <= SHIFTREG(7 downto 0);

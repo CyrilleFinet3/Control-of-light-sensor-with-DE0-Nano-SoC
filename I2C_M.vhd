@@ -5,8 +5,8 @@ use ieee.std_logic_unsigned.all;
 
 entity I2C_M is
   generic(
-    input_clk : integer := 50_000_000;			--input clock speed from user logic in KHz
-    bus_clk   : integer := 400_000);	   --speed the I2C_M bus (scl) will run at in MHz
+    input_clk : integer := 50_000;			--input clock speed from user logic in KHz
+    bus_clk   : integer := 400    );	   --speed the I2C_M bus (scl) will run at in MHz
 	 --input_clk_multiplier : integer := 1_000_000;			
     --bus_clk_multiplier   : integer := 1_000);
   port(
@@ -168,7 +168,11 @@ begin
             addr_rw <= addr;           	  --collect requested slave address and command
             data_tx <= data_wr;             --collect requested data to write
             if(rw = '1') then               --continue transaction with a read
-              state <= start;               --go to repeated start
+					if(ena = '1') then 
+						state <= start;               --go to repeated start
+					else
+						state <= ready;
+              end if;
             else                            --continue transaction with another write
               sda_int <= data_wr(bit_cnt);  --write first bit of data
               state <= wr;                  --go to write byte
